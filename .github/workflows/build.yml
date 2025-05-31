@@ -16,7 +16,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    # Fixer
     - name: Build
-      run: cargo build --verbose
+      run: cargo build --manifest-path fixer/Cargo.toml --verbose
+    
     - name: Run tests
-      run: cargo test --verbose
+      run: cargo test --manifest-path fixer/Cargo.toml --verbose
+
+    # Cleaner
+    - name: Build
+      run: cargo build --manifest-path cleaner/Cargo.toml --verbose
+    
+    - name: Run tests
+      run: cargo test --manifest-path cleaner/Cargo.toml --verbose
