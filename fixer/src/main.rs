@@ -8,6 +8,7 @@ use crate::fixes::{
     empty_property::EmptyProperty,
     view_box_pt::ViewBoxPt,
     external_style::ExternalStyle,
+    font_data::FontData,
 };
 
 pub mod fixes;
@@ -57,6 +58,7 @@ fn main() {
     stack.push(Box::new(ViewBoxPt { }));
     stack.push(Box::new(ExternalStyle { }));
     stack.push(Box::new(PointlessXmlns { }));
+    stack.push(Box::new(FontData { }));
 
     while let Some(top) = stack.pop() {
         data = top.fix(&data);
