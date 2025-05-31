@@ -6,11 +6,11 @@ pub struct WidthAndHeight {
 }
 
 /*
-// TODO : Remove Width/Height? Leave to 100%
+// TODO : Replace Width/Height with 100%?
 */
 impl Task for WidthAndHeight {
   fn fix(&self, svg: &String) -> String {
 
-    return svg;
+    return svg.to_string();
   }
 }
