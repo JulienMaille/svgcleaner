@@ -1,4 +1,5 @@
 use clap::Parser;
+use fixes::pointless_xmlns::PointlessXmlns;
 use core::panic;
 use std::{fs};
 
@@ -35,9 +36,6 @@ fn main() {
         }
     };
 
-    let svg_path_clone = path_in.clone();
-    let svg_path_in = svg_path_clone.to_str().unwrap();
-
     let path_out = match std::path::absolute(args.svg_out)
     {
         Ok(a) => a,
@@ -58,12 +56,11 @@ fn main() {
     stack.push(Box::new(EmptyProperty { }));
     stack.push(Box::new(ViewBoxPt { }));
     stack.push(Box::new(ExternalStyle { }));
+    stack.push(Box::new(PointlessXmlns { }));
 
     while let Some(top) = stack.pop() {
         data = top.fix(&data);
     };
 
     let _ = fs::write(path_out, data);
-    
-    println!("Fixed svg : {}", svg_path_in);
 }
