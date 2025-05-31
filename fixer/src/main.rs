@@ -6,6 +6,7 @@ use crate::fixes::{
     task::Task,
     empty_property::EmptyProperty,
     view_box_pt::ViewBoxPt,
+    external_style::ExternalStyle,
 };
 
 pub mod fixes;
@@ -56,6 +57,7 @@ fn main() {
     let mut stack: Vec<Box<dyn Task>> = Vec::new();
     stack.push(Box::new(EmptyProperty { }));
     stack.push(Box::new(ViewBoxPt { }));
+    stack.push(Box::new(ExternalStyle { }));
 
     while let Some(top) = stack.pop() {
         data = top.fix(&data);

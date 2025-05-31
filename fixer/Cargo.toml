@@ -13,7 +13,7 @@ edition = "2024"
 
 [[bin]]
 doc = false
-name = "svgcleaner"
+name = "fixer"
 path = "src/main.rs"
 
 [dependencies]
