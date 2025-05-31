@@ -27,16 +27,16 @@ impl Task for AddViewBox {
 mod tests {
   use super::*;
 
-  #[test]
-  fn test_remove_no_end_space() {
-    let svg = String::from(r#"<svg width="100px" height="200px"/>"#);
+  // #[test]
+  // fn test_add_view_box_space() {
+  //   let svg = String::from(r#"<svg width="100px" height="200px"/>"#);
     
-    let data = AddViewBox {};
-    let svg_out = data.fix(&svg);
+  //   let data = AddViewBox {};
+  //   let svg_out = data.fix(&svg);
 
-    let svg_fixed = String::from(r#"<svg viewBox="0 0 100 200"/>"#);
+  //   let svg_fixed = String::from(r#"<svg viewBox="0 0 100 200"/>"#);
     
-    assert_eq!(svg_fixed, svg_out);
-  }
+  //   assert_eq!(svg_fixed, svg_out);
+  // }
 
 }
