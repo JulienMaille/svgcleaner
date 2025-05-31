@@ -1,0 +1,78 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Cargo launch",
+      "cargo": {
+        "args": [
+          "build",
+          "--lib"
+        ]
+      },
+      "args": []
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in library 'svgcleaner'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--lib",
+          "--package=svgcleaner"
+        ],
+        "filter": {
+          "name": "svgcleaner",
+          "kind": "lib"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'svgcleaner'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=svgcleaner",
+          "--package=svgcleaner",
+          "${workspaceFolder}/new.svg",
+          "${workspaceFolder}/old.svg",
+        ],
+        "filter": {
+          "name": "svgcleaner",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'svgcleaner'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=svgcleaner",
+          "--package=svgcleaner"
+        ],
+        "filter": {
+          "name": "svgcleaner",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

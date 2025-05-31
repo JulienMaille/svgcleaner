@@ -4,3 +4,4 @@ moc_*.cpp
 Cargo.lock
 .idea
 *.iml
+.DS_Store

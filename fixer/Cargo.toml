@@ -1,0 +1,27 @@
+[package]
+name = "fixer"
+version = "0.1.0"
+authors = ["callum sykes <callum@mcneel.com"]
+keywords = ["svg", "fixer"]
+license = "GPL-2.0"
+description = "Fixes issues with SVGs before they are fed into the cleaner"
+documentation = "https://github.com/mcneel/svgcleaner/fixer/README.md"
+repository = "https://github.com/mcneel/svgcleaner"
+readme = "../README.md"
+
+edition = "2024"
+
+[[bin]]
+doc = false
+name = "svgcleaner"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5.39", features = ["derive"] }
+regex = "1.11.1"
+# log = "0.4"
+
+# Makes it 5-10% faster, but very slow to compile.
+# Also makes an executable ~30% smaller.
+[profile.release]
+lto = true

@@ -1,9 +1,9 @@
-=========================
-svgcleaner |build status|
-=========================
+# SvgCleaner
 
-.. |build status| image:: https://travis-ci.org/RazrFalcon/svgcleaner.svg?branch=master
-   :target: https://travis-ci.org/RazrFalcon/svgcleaner
+===
+Original Repo is here
+https://github.com/RazrFalcon/svgcleaner
+===
 
 *svgcleaner* helps you clean up your SVG files, keeping them free from unnecessary data.
 

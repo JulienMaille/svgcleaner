@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+# Fixer
+
+## [0.1.0]
+- Created Fixer
+Features
+  - Removes pt in viewBox
+  - Removes properties with no value e.g `stroke-width=""`
+
+# Cleaner
 
 ## [0.9.6] - 2020-11-08
 ### Added
@@ -55,8 +63,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `transform` grouping in `--group-by-style`.
 
 ### Other
-- Includes [svgdom 0.6.0](https://github.com/RazrFalcon/libsvgdom/blob/master/CHANGELOG.md#060---2017-06-18) fixes.
-- Includes [svgparser 0.4.1](https://github.com/RazrFalcon/libsvgparser/blob/master/CHANGELOG.md#041---2017-06-15) fixes.
+- Includes [svgdom 0.6.0](https://github.com/mcneel/libsvgdom/blob/master/CHANGELOG.md#060---2017-06-18) fixes.
+- Includes [svgparser 0.4.1](https://github.com/mcneel/libsvgparser/blob/master/CHANGELOG.md#041---2017-06-15) fixes.
 
 ## [0.9.0] - 2017-06-05
 ### Added
@@ -277,22 +285,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - First public release with Perl backend and Qt GUI.
 
-[Unreleased]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.6...HEAD
-[0.9.6]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.5...v0.9.6
-[0.9.5]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.4...v0.9.5
-[0.9.4]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.3...v0.9.4
-[0.9.3]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.2...v0.9.3
-[0.9.2]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.1...v0.9.2
-[0.9.1]: https://github.com/RazrFalcon/svgcleaner/compare/v0.9.0...v0.9.1
-[0.9.0]: https://github.com/RazrFalcon/svgcleaner/compare/v0.8.1...v0.9.0
-[0.8.1]: https://github.com/RazrFalcon/svgcleaner/compare/v0.8.0...v0.8.1
-[0.8.0]: https://github.com/RazrFalcon/svgcleaner/compare/v0.7.1...v0.8.0
-[0.7.1]: https://github.com/RazrFalcon/svgcleaner/compare/v0.7.0...v0.7.1
-[0.7.0]: https://github.com/RazrFalcon/svgcleaner/compare/v0.6.91...v0.7.0
-[0.6.91]: https://github.com/RazrFalcon/svgcleaner/compare/v0.6.90...v0.6.91
-[0.6.90]: https://github.com/RazrFalcon/svgcleaner/compare/v0.6.2...v0.6.90
-[0.6.2]: https://github.com/RazrFalcon/svgcleaner/compare/v0.6.1...v0.6.2
-[0.6.1]: https://github.com/RazrFalcon/svgcleaner/compare/v0.6...v0.6.1
-[0.6.0]: https://github.com/RazrFalcon/svgcleaner/compare/v0.5.1...v0.6
-[0.5.1]: https://github.com/RazrFalcon/svgcleaner/compare/v0.5...v0.5.1
-[0.5.0]: https://github.com/RazrFalcon/svgcleaner/compare/v0.4...v0.5
+[Unreleased]: https://github.com/mcneel/svgcleaner/compare/v0.9.6...HEAD
+[0.9.6]: https://github.com/mcneel/svgcleaner/compare/v0.9.5...v0.9.6
+[0.9.5]: https://github.com/mcneel/svgcleaner/compare/v0.9.4...v0.9.5
+[0.9.4]: https://github.com/mcneel/svgcleaner/compare/v0.9.3...v0.9.4
+[0.9.3]: https://github.com/mcneel/svgcleaner/compare/v0.9.2...v0.9.3
+[0.9.2]: https://github.com/mcneel/svgcleaner/compare/v0.9.1...v0.9.2
+[0.9.1]: https://github.com/mcneel/svgcleaner/compare/v0.9.0...v0.9.1
+[0.9.0]: https://github.com/mcneel/svgcleaner/compare/v0.8.1...v0.9.0
+[0.8.1]: https://github.com/mcneel/svgcleaner/compare/v0.8.0...v0.8.1
+[0.8.0]: https://github.com/mcneel/svgcleaner/compare/v0.7.1...v0.8.0
+[0.7.1]: https://github.com/mcneel/svgcleaner/compare/v0.7.0...v0.7.1
+[0.7.0]: https://github.com/mcneel/svgcleaner/compare/v0.6.91...v0.7.0
+[0.6.91]: https://github.com/mcneel/svgcleaner/compare/v0.6.90...v0.6.91
+[0.6.90]: https://github.com/mcneel/svgcleaner/compare/v0.6.2...v0.6.90
+[0.6.2]: https://github.com/mcneel/svgcleaner/compare/v0.6.1...v0.6.2
+[0.6.1]: https://github.com/mcneel/svgcleaner/compare/v0.6...v0.6.1
+[0.6.0]: https://github.com/mcneel/svgcleaner/compare/v0.5.1...v0.6
+[0.5.1]: https://github.com/mcneel/svgcleaner/compare/v0.5...v0.5.1
+[0.5.0]: https://github.com/mcneel/svgcleaner/compare/v0.4...v0.5

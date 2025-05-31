@@ -76,7 +76,7 @@ Notes
 - All tests are single-threaded.
 - I know that a performance comparison is not fair since ``svgo`` have to restart ``node.js``
   each time. But I don't know how to prevent it or ignore ``node.js`` starting time.
-- Cleaners options can be found [here](../tools/stats/src/main.rs).
+- Cleaners options can be found [here](../tools/stats/src/cleaner/main.rs).
 - Used ``node.js``: ``9.2.1 (icu npm snapshot ssl -debug -doc -inspector -systemtap -test CPU_FLAGS_X86="sse2" PYTHON_TARGETS="python2_7")``.
 - You can find links to the data sets `here <../tools/files-testing/README.md>`_.
 - You can repeat tests by yourself using `stats <../tools/stats>`_ app.
