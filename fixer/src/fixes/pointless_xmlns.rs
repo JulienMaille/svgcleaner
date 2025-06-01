@@ -8,15 +8,15 @@ pub struct PointlessXmlns {
 impl Task for PointlessXmlns {
   fn fix(&self, svg: &String) -> String {
     
-    let xmlns_re = Regex::new(r#"xmlns:[\w]+="[\w:/./#-]+" *"#).unwrap();
+    let xmlns_re = Regex::new(r#"xmlns:[\w]+="[\w:/./#-]+" *\s*"#).unwrap();
     let xmlns_cow = xmlns_re.replace_all(&svg, "");
     let xmlns_pass = xmlns_cow.into_owned();
 
-    let sodipodi_re = Regex::new(r#"sodipodi:[\w]+="[\w:/./#-]+" *"#).unwrap();
+    let sodipodi_re = Regex::new(r#"sodipodi:[\w]+="[\w:/./#-]+" *\s*"#).unwrap();
     let sodipodi_cow = sodipodi_re.replace_all(&xmlns_pass, "");
     let sodipodi_pass = sodipodi_cow.into_owned();
 
-    let inkscape_re = Regex::new(r#"inkscape:version="[\w.-]+[ \(\w,.\)\-]+" *"#).unwrap();
+    let inkscape_re = Regex::new(r#"inkscape:version="[\w.-]+[ \(\w,.\)\-]+" *\s*"#).unwrap();
     let inkscape_cow = inkscape_re.replace_all(&sodipodi_pass, "");
     let inkscape_pass = inkscape_cow.into_owned();
 
@@ -26,7 +26,10 @@ impl Task for PointlessXmlns {
 
 #[cfg(test)]
 mod tests {
-  use super::*;
+
+  use crate::PointlessXmlns;
+  use crate::Task;
+  use pretty_assertions::{assert_eq};
 
   #[test]
   fn test_remove_no_end_space() {
