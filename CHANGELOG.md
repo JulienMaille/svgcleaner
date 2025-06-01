@@ -4,15 +4,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-# Fixer
+# Svg Fixer
 
-## [0.1.0]
+## 0.1.0 - 2025-07-01
 - Created Fixer
 Features
-  - Removes pt in viewBox
+  - Removes pt etc. in viewBox
   - Removes properties with no value e.g `stroke-width=""`
+  - Removes external styles
+  - Removes unnecessary font data properties
+  - Removes unnecessary xmlns
+  - Adds a viewBox when one does not exist
 
-# Cleaner
+# Svg Compare
+
+## 0.1.0 - 2025-07-01
+- Created Compare
+Features
+  - Compares 2 inputted SVGs
+
+# Svg Cleaner
 
 ## [0.9.6] - 2020-11-08
 ### Added
