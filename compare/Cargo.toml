@@ -1,6 +1,13 @@
 [package]
-name = "compare"
+name = "svgcompare"
 version = "0.1.0"
+authors = ["callum sykes <callum@mcneel.com"]
+keywords = ["svg", "compare"]
+license = "GPL-2.0"
+description = "Compares SVGs by renderign to PNG and checking pixels"
+documentation = "https://github.com/mcneel/svgcleaner/compare/README.md"
+repository = "https://github.com/mcneel/svgcleaner"
+readme = "../README.md"
 edition = "2024"
 
 [dependencies]

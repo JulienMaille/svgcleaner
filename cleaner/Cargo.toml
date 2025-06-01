@@ -31,8 +31,3 @@ svgdom = "0.10.5"
 [features]
 default = ["cli-parsing"]
 cli-parsing = ["clap"]
-
-# Makes it 5-10% faster, but very slow to compile.
-# Also makes an executable ~30% smaller.
-[profile.release]
-lto = true
