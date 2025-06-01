@@ -10,6 +10,11 @@ repository = "https://github.com/mcneel/svgcleaner"
 readme = "../README.md"
 edition = "2024"
 
+[[bin]]
+doc = false
+name = "svgcompare"
+path = "src/main.rs"
+
 [dependencies]
 clap = { version = "4.5.39", features = ["derive"] }
 resvg = "0.45.1"
