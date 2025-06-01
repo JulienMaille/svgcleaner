@@ -1,5 +1,3 @@
-use std::ops::Index;
-
 use regex::Regex;
 
 use super::task::Task;
@@ -24,24 +22,10 @@ impl Task for AddViewBox {
 
       let mut svg_part: String = part.to_string();
 
-      let re_width = Regex::new(r#"width="([\w\-. ]+)""#);
-      let re_height = Regex::new(r#"height="([\w\-. ]+)""#);
-
-      let match_width = match re_width {
-        Ok(a) => a,
-        Err(_) => {
-          return str;
-        }
-      };
-
-      let match_height = match re_height {
-        Ok(a) => a,
-        Err(_) => {
-          return str;
-        }
-      };
+      let match_width = Regex::new(r#"width="([\w\-. ]+)""#).unwrap();
+      let match_height = Regex::new(r#"height="([\w\-. ]+)""#).unwrap();
       
-      // Extract Values
+      // Extract Valuess
       let capture_widths: Vec<String> = match_width.captures_iter(&svg_part).map(|caps| {
         let s = match caps.get(1) {
           None => {
@@ -105,9 +89,9 @@ mod tests {
     let data = AddViewBox {};
     let svg_out = data.fix(&svg);
 
-    let svg_fixed = String::from(r#"<svg viewBox="0 0 100px 200px" />"#);
+    let correct = String::from(r#"<svg viewBox="0 0 100px 200px" />"#);
     
-    assert_eq!(svg_fixed, svg_out);
+    assert_eq!(correct, svg_out);
   }
 
 }

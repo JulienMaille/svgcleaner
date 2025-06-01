@@ -24,9 +24,9 @@ mod tests {
     let data = ViewBoxPt {};
     let svg_out = data.fix(&svg);
 
-    let svg_fixed = String::from(r#"<svg viewBox="0 -0 0 0"/>"#);
+    let correct = String::from(r#"<svg viewBox="0 -0 0 0"/>"#);
     
-    assert_eq!(svg_fixed, svg_out);
+    assert_eq!(correct, svg_out);
   }
 
 }

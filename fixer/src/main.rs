@@ -5,6 +5,7 @@ use std::{fs};
 
 use crate::fixes::{
     task::Task,
+    pointless_transform::PointlessTransform,
     empty_property::EmptyProperty,
     view_box_pt::ViewBoxPt,
     external_style::ExternalStyle,
@@ -56,6 +57,7 @@ fn main() {
 
     let mut stack: Vec<Box<dyn Task>> = Vec::new();
     stack.push(Box::new(EmptyProperty { }));
+    stack.push(Box::new(PointlessTransform { }));
     stack.push(Box::new(AddViewBox { })); // <-- Best before ViewBoxPt
     stack.push(Box::new(ViewBoxPt { }));
     stack.push(Box::new(ExternalStyle { }));

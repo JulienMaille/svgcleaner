@@ -35,9 +35,21 @@ mod tests {
     let data = PointlessXmlns {};
     let svg_out = data.fix(&svg);
 
-    let svg_fixed = String::from(r#"<svg xmlns="http://www.w3.org/2000/svg" />"#);
+    let correct = String::from(r#"<svg xmlns="http://www.w3.org/2000/svg" />"#);
     
-    assert_eq!(svg_fixed, svg_out);
+    assert_eq!(correct, svg_out);
+  }
+
+  #[test]
+  fn full_svg() {
+    let svg = include_str!("../../data/ellipse_old.svg").to_string();
+    
+    let data = PointlessXmlns {};
+    let svg_out = data.fix(&svg);
+
+    let correct = include_str!("../../data/ellipse_new.svg");
+    
+    assert_eq!(correct, svg_out);
   }
 
 }

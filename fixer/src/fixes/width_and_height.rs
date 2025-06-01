@@ -1,5 +1,3 @@
-use regex::Regex;
-
 use super::task::Task;
 
 pub struct WidthAndHeight {

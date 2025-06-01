@@ -24,9 +24,9 @@ mod tests {
     let data = EmptyProperty {};
     let svg_out = data.fix(&svg);
 
-    let svg_fixed = String::from(r#"<svg />"#);
+    let correct = String::from(r#"<svg />"#);
     
-    assert_eq!(svg_fixed, svg_out);
+    assert_eq!(correct, svg_out);
   }
 
 }
