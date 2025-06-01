@@ -5,11 +5,7 @@ use super::task::Task;
 pub struct PointlessTransform {
 }
 
-/*
-// TODO : Remove transforms like this
-viewBox="0 -36 36 36"
-transform="scale(1 -1)"
-*/
+// TODO : Seems to cause a break!
 impl Task for PointlessTransform {
   fn fix(&self, svg: &String) -> String {
 

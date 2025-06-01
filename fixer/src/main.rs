@@ -1,5 +1,4 @@
 use clap::Parser;
-use fixes::pointless_xmlns::PointlessXmlns;
 use core::panic;
 use std::{fs};
 
@@ -11,6 +10,7 @@ use crate::fixes::{
     external_style::ExternalStyle,
     font_data::FontData,
     add_view_box::AddViewBox,
+    pointless_xmlns::PointlessXmlns,
 };
 
 pub mod fixes;
@@ -58,7 +58,7 @@ fn main() {
     let mut stack: Vec<Box<dyn Task>> = Vec::new();
     stack.push(Box::new(PointlessXmlns { }));
     stack.push(Box::new(EmptyProperty { }));
-    stack.push(Box::new(PointlessTransform { }));
+    // stack.push(Box::new(PointlessTransform { })); // Note: Turns out the fix isn't as simple
     stack.push(Box::new(AddViewBox { })); // <-- Best before ViewBoxPt
     stack.push(Box::new(ViewBoxPt { }));
     stack.push(Box::new(ExternalStyle { }));
