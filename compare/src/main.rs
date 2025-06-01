@@ -53,5 +53,5 @@ fn main() {
         }
     };
 
-    compare_svgs(&left_svg_data, &right_svg_data);
+    compare_svgs(&args.left_svg.clone(), &left_svg_data, &right_svg_data);
 }
