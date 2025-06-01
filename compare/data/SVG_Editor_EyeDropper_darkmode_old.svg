@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!--Generator: Xara Designer (www.xara.com), SVG filter version: 6.6.0.9-->
+<svg fill="none" fill-rule="evenodd" stroke="black" stroke-width="0.501" stroke-linejoin="bevel" stroke-miterlimit="10" font-family="Times New Roman" font-size="16" style="font-variant-ligatures:none" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" overflow="visible" width="24pt" height="24pt" viewBox="0 -24 24 24">
+ <defs>
+  <linearGradient id="LinearGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2.618" y2="-2.506" gradientTransform="translate(8.51 8.566) scale(0.5)" spreadMethod="reflect">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+  <radialGradient id="RadialGradient" gradientUnits="userSpaceOnUse" cx="19.244" cy="24.893" r="8.091670099553" gradientTransform="matrix(0.707108 -0.70726 0.707108 0.706955 -25.253 0.06)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </radialGradient>
+  <linearGradient id="LinearGradient_1" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="6.307" y2="-5.556" gradientTransform="matrix(0.707108 -0.707108 0.707108 0.707108 0.556 5.642)">
+   <stop offset="0" stop-color="#ffffff"/>
+   <stop offset="1" stop-color="#000000"/>
+  </linearGradient>
+ </defs>
+ <g id="Layer 1" transform="scale(1 -1)">
+  <path d="M 1.238,2.249 L 2.279,3.288 L 2.488,4.829 C 2.54,5.21 2.614,5.869 2.707,5.962 L 13.596,16.85 C 13.688,16.944 13.841,16.944 13.934,16.85 L 16.866,13.919 C 16.959,13.826 16.959,13.674 16.866,13.581 L 5.951,2.665 C 5.858,2.572 5.413,2.493 5.134,2.465 L 3.389,2.286 L 2.295,1.191 C 2.258,1.155 2.195,1.154 2.158,1.191 L 1.238,2.111 C 1.2,2.148 1.201,2.212 1.238,2.249 Z" stroke-width="2.25" stroke="#666666" stroke-linejoin="round" marker-start="none" marker-end="none"/>
+  <rect x="-4.603" y="-2.405" width="9.206" height="4.811" rx="1.87502712993645" ry="1.87502712993645" transform="translate(18.061 17.911) rotate(45.0124)" stroke-width="2.25" stroke="#666666" stroke-linejoin="miter"/>
+  <rect x="-1.663" y="-3.904" width="3.326" height="7.809" rx="0.470367430845291" ry="0.470367430845291" transform="translate(15.814 15.73) rotate(45)" stroke-width="2.25" stroke="#666666" stroke-linejoin="miter"/>
+  <path d="M 1.207,2.29 L 2.248,3.329 L 2.457,4.87 C 2.509,5.251 2.583,5.91 2.676,6.003 L 13.565,16.891 C 13.657,16.985 13.81,16.985 13.903,16.891 L 16.835,13.96 C 16.928,13.867 16.928,13.715 16.835,13.622 L 5.92,2.706 C 5.827,2.613 5.382,2.534 5.103,2.506 L 3.358,2.327 L 2.264,1.232 C 2.227,1.196 2.164,1.195 2.127,1.232 L 1.207,2.152 C 1.169,2.189 1.17,2.253 1.207,2.29 Z" stroke-width="0.742" fill="#6582fc" stroke-linejoin="round" stroke="#191919" marker-start="none" marker-end="none"/>
+  <mask id="TranspMask">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient)" stroke="none"/>
+   <path d="M 1.207,2.29 L 2.248,3.329 L 2.457,4.87 C 2.509,5.251 2.583,5.91 2.676,6.003 L 13.565,16.891 C 13.657,16.985 13.81,16.985 13.903,16.891 L 16.835,13.96 C 16.928,13.867 16.928,13.715 16.835,13.622 L 5.92,2.706 C 5.827,2.613 5.382,2.534 5.103,2.506 L 3.358,2.327 L 2.264,1.232 C 2.227,1.196 2.164,1.195 2.127,1.232 L 1.207,2.152 C 1.169,2.189 1.17,2.253 1.207,2.29 Z" stroke-width="0.742" fill="none" stroke-linejoin="round" stroke="#ffffff" marker-start="none" marker-end="none"/>
+  </mask>
+  <path d="M 1.207,2.29 L 2.248,3.329 L 2.457,4.87 C 2.509,5.251 2.583,5.91 2.676,6.003 L 13.565,16.891 C 13.657,16.985 13.81,16.985 13.903,16.891 L 16.835,13.96 C 16.928,13.867 16.928,13.715 16.835,13.622 L 5.92,2.706 C 5.827,2.613 5.382,2.534 5.103,2.506 L 3.358,2.327 L 2.264,1.232 C 2.227,1.196 2.164,1.195 2.127,1.232 L 1.207,2.152 C 1.169,2.189 1.17,2.253 1.207,2.29 Z" stroke-width="0.742" fill="#ffffff" stroke-linejoin="round" stroke="#191919" marker-start="none" marker-end="none" mask="url(#TranspMask)"/>
+  <rect x="-4.603" y="-2.405" width="9.206" height="4.811" rx="1.87502712993645" ry="1.87502712993645" transform="translate(18.03 17.952) rotate(45.0124)" stroke-width="0.742" stroke-linejoin="miter" fill="#333333" stroke="#191919"/>
+  <mask id="TranspMask_1">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#RadialGradient)" stroke="none"/>
+   <rect x="-4.603" y="-2.404" width="9.206" height="4.809" rx="1.87502712993645" ry="1.87502712993645" transform="translate(17.896 17.818) rotate(45.0124)" stroke-width="0.742" stroke-linejoin="miter" fill="none" stroke="#ffffff"/>
+  </mask>
+  <rect x="-4.603" y="-2.404" width="9.206" height="4.809" rx="1.87502712993645" ry="1.87502712993645" transform="translate(17.896 17.818) rotate(45.0124)" stroke-width="0.742" stroke-linejoin="miter" fill="#e5e5e5" stroke="#191919" mask="url(#TranspMask_1)"/>
+  <rect x="-1.663" y="-3.904" width="3.326" height="7.809" rx="0.470367430845291" ry="0.470367430845291" transform="translate(15.783 15.771) rotate(45)" stroke-width="0.742" stroke-linejoin="miter" fill="#333333" stroke="#191919"/>
+  <mask id="TranspMask_2">
+   <rect x="-10%" y="-10%" width="120%" height="120%" fill="url(#LinearGradient_1)" stroke="none"/>
+   <rect x="-1.663" y="-3.904" width="3.326" height="7.809" rx="0.470367430845291" ry="0.470367430845291" transform="translate(15.783 15.771) rotate(45)" stroke-width="0.742" stroke-linejoin="miter" fill="none" stroke="#ffffff"/>
+  </mask>
+  <rect x="-1.663" y="-3.904" width="3.326" height="7.809" rx="0.470367430845291" ry="0.470367430845291" transform="translate(15.783 15.771) rotate(45)" stroke-width="0.742" stroke-linejoin="miter" fill="#ffffff" stroke="#191919" mask="url(#TranspMask_2)"/>
+ </g>
+</svg>
