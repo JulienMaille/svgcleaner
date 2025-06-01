@@ -7,7 +7,7 @@ pub struct EmptyProperty {
 
 impl Task for EmptyProperty {
   fn fix(&self, svg: &String) -> String {
-    let re = Regex::new(r#"[\w-]+="" *"#).unwrap();
+    let re = Regex::new(r#"[:\w-]+="" *"#).unwrap();
     let cow = re.replace_all(&svg, "");
     return cow.into_owned();
   }
@@ -15,7 +15,10 @@ impl Task for EmptyProperty {
 
 #[cfg(test)]
 mod tests {
-  use super::*;
+
+  use crate::EmptyProperty;
+  use crate::Task;
+  use pretty_assertions::{assert_eq};
 
   #[test]
   fn test_remove_no_end_space() {
@@ -25,6 +28,32 @@ mod tests {
     let svg_out = data.fix(&svg);
 
     let correct = String::from(r#"<svg />"#);
+    
+    assert_eq!(correct, svg_out);
+  }
+
+  #[test]
+  fn test_remove_colon_property() {
+    let svg = String::from(r#"<rdf:RDF>
+  <cc:Work
+      rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+  </cc:Work>
+</rdf:RDF>"#);
+    
+    let data = EmptyProperty {};
+    let svg_out = data.fix(&svg);
+
+    let correct = String::from(r#"<rdf:RDF>
+  <cc:Work
+      >
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type
+        rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+  </cc:Work>
+</rdf:RDF>"#);
     
     assert_eq!(correct, svg_out);
   }
