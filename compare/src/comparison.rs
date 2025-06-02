@@ -76,9 +76,10 @@ pub fn compare_svgs(path: &String, left_svg_data: &String, right_svg_data: &Stri
 
     if a > 0 || r > 0 || g > 0 || b > 0 {
 
-        let _ = comparison_pixmap.save_png(path.replace(".svg", "_error.png"));
+        let new_path = path.replace(".svg", "_error.png");
+        let _ = comparison_pixmap.save_png(new_path.clone());
 
-        panic!("Svgs are NOT equal ~ a:{}/4096, r:{}/4096, g:{}/4096, b:{}/4096", a,r,g,b);
+        panic!("Svgs are NOT equal ~ a:{}/4096, r:{}/4096, g:{}/4096, b:{}/4096 -> {}", a,r,g,b, new_path);
     }
 
     std::process::exit(0);
