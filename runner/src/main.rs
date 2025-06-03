@@ -1,5 +1,5 @@
 use clap::Parser;
-use svgcleaner::{CleaningOptions, ParseOptions, WriteOptions};
+use svgcleaner::{CleaningOptions, ParseOptions, WriteOptions, StyleJoinMode};
 use svgcompare::comparison::compare_svgs;
 use core::panic;
 
@@ -53,7 +53,50 @@ fn main() {
             Err(e) => panic!("{}", e),
         };
 
-        let cleaning_options = CleaningOptions::default();
+        let cleaning_options = CleaningOptions {
+            remove_unused_defs: false,
+            convert_shapes: false,
+            remove_title: true,
+            remove_desc: true,
+            remove_metadata: true,
+            remove_dupl_linear_gradients: true,
+            remove_dupl_radial_gradients: true,
+            remove_dupl_fe_gaussian_blur: true,
+            ungroup_groups: true,
+            ungroup_defs: false, // <-- Do not do this
+            group_by_style: true,
+            merge_gradients: true,
+            regroup_gradient_stops: false,
+            remove_invalid_stops: true,
+            remove_invisible_elements: true,
+            resolve_use: false, // <-- Keeping use seems good to me
+
+            remove_version: true,
+            remove_unreferenced_ids: true,
+            trim_ids: true,
+            remove_text_attributes: true,
+            remove_unused_coordinates: true,
+            remove_default_attributes: true,
+            remove_xmlns_xlink_attribute: true,
+            remove_needless_attributes: false, // <-- Needs to be kept for stroke-dark etc
+            remove_gradient_attributes: false, // ?
+            join_style_attributes: StyleJoinMode::All,
+            apply_transform_to_gradients: true,
+            apply_transform_to_shapes: true,
+
+            paths_to_relative: true,
+            remove_unused_segments: true,
+            convert_segments: true,
+            append_newline: false,
+            apply_transform_to_paths: true,
+
+            // I think 3 is fine when the resulting image is 64px.
+            coordinates_precision: 3,
+            properties_precision: 3,
+            paths_coordinates_precision: 3,
+            transforms_precision: 3,
+        };
+
         let write_options = WriteOptions::default();
         let _ = match clean_doc(&mut svg_doc, &cleaning_options, &write_options) {
             Ok(a) => a,
@@ -84,7 +127,7 @@ fn main() {
             Ok(_) => {
                 let _ = fs::write(entry.path(), cleaned_svg_data);
                 
-                let ratio = 100.0 - (svg_data_count / cleaned_svg_data_count * 100.0);
+                let ratio = (svg_data_count / cleaned_svg_data_count * 100.0) - 100.0;
                 let message = format!("File is {:.2}% smaller now : {:?}", ratio, entry.file_name());
                 println!("{}", message);
             },
