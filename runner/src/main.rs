@@ -18,8 +18,8 @@ pub struct Args {
     #[arg()]
     directory: String,
 
-    #[arg()]
-    recursive: bool
+    // #[arg()]
+    // recursive: bool
 }
 
 fn main() {
@@ -32,8 +32,10 @@ fn main() {
     };
 
     let func: &dyn Fn(&DirEntry) = &|entry| {
-        if !std::path::Path::extension(&entry.path()).is_some_and(|ex| ex.eq(".svg")) { return; }
-        
+        if !std::path::Path::extension(&entry.path()).is_some_and(|ex| ex.eq("svg")) { return; }
+
+        // TODO : Try/catch the function
+
         let svg_data = match fs::read_to_string(entry.path()) {
             Ok(a) => a,
             Err(_) => {
@@ -63,6 +65,9 @@ fn main() {
 
         let cleaned_svg_data = str::from_utf8(&buf).unwrap().to_string();
 
+        let svg_data_count = svg_data.len() as f64;
+        let cleaned_svg_data_count = cleaned_svg_data.len() as f64;
+
         let comparison_options = ComparisonOptions
         {
             path:String::from("~/example_path.svg"),
@@ -79,7 +84,8 @@ fn main() {
             Ok(_) => {
                 let _ = fs::write(entry.path(), cleaned_svg_data);
                 
-                let message = format!("File was cleaned successfully : {:?}", entry.file_name());
+                let ratio = 100.0 - (svg_data_count / cleaned_svg_data_count * 100.0);
+                let message = format!("File is {:.2}% smaller now : {:?}", ratio, entry.file_name());
                 println!("{}", message);
             },
             Err(_) => {
