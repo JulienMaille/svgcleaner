@@ -19,7 +19,11 @@ impl Task for PointlessXmlns {
     let inkscape_cow = inkscape_re.replace_all(&sodipodi_pass, "");
     let inkscape_pass = inkscape_cow.into_owned();
 
-    return inkscape_pass;
+    let sodipodi_view_re = Regex::new(r#"<sodipodi:namedview[\n\w\d .#":=-]+\/>"#).unwrap(); // /> // [:=\w\d/:/#/-/."]+
+    let sodipodi_view_cow = sodipodi_view_re.replace_all(&inkscape_pass, "");
+    let sodipodi_view_pass = sodipodi_view_cow.into_owned();
+
+    return sodipodi_view_pass;
   }
 }
 
@@ -41,13 +45,25 @@ mod tests {
   }
 
   #[test]
-  fn full_svg() {
+  fn ellipse_svg() {
     let svg = include_str!("../../data/ellipse_old.svg").to_string();
     
     let data = PointlessXmlns {};
     let svg_out = data.fix(&svg);
 
     let correct = include_str!("../../data/ellipse_new.svg");
+    
+    assert_eq!(correct, svg_out);
+  }
+
+  #[test]
+  fn no_tool_button_svg() {
+    let svg = include_str!("../../data/notoolbutton_old.svg").to_string();
+    
+    let data = PointlessXmlns;
+    let svg_out = data.fix(&svg);
+
+    let correct = include_str!("../../data/notoolbutton_new.svg");
     
     assert_eq!(correct, svg_out);
   }
