@@ -1,0 +1,22 @@
+[package]
+name = "svgrunner"
+version = "0.1.0"
+authors = ["callum sykes <callum@mcneel.com"]
+keywords = ["svg", "runner"]
+license = "GPL-2.0"
+description = "Runs all of the svg fixing and cleaning tools ensuring nothing has changed."
+documentation = "https://github.com/mcneel/svgcleaner/runner/README.md"
+repository = "https://github.com/mcneel/svgcleaner"
+readme = "../README.md"
+edition = "2024"
+
+[[bin]]
+doc = false
+name = "svgrunner"
+path = "src/main.rs"
+
+[dependencies]
+clap = "4.5.39"
+
+[dev-dependencies]
+pretty_assertions = "1.4.1"
