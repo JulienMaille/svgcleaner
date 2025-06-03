@@ -1,14 +1,10 @@
-# Runner
+# Compare
 
-Runs all of the SVG cleaning and fixing tools to ensure nothing changes
-
-## Why
-- Having everything in rust keeps everything simple and portable.
-- I want to avoid needing imagemagick
+Helps you clean up your SVG files, keeping them free from unnecessary data.
 
 ## Usage
 You can run it by using cargo run.
--- passes args to svgrunner
+-- passes args to svgcleaner
 
 ``` bash
 cargo run -- <directory>

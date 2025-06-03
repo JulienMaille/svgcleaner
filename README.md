@@ -10,7 +10,11 @@ helps you clean up your SVG files, keeping them free from unnecessary data.
 
 ## Fixer
 
-fixes bad svgs before they are cleaned
+Fixes bad svgs before they are cleaned
+
+## Compare
+
+Compares 2 svgs for pixel equality inside the given parameters
 
 ### Purpose
 
