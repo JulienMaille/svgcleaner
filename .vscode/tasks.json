@@ -1,0 +1,221 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build cleaner",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "build",
+        "--manifest-path",
+        "cleaner/Cargo.toml"
+      ],
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "build"
+    },
+    {
+      "label": "build compare",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "build",
+        "--manifest-path",
+        "compare/Cargo.toml"
+      ],
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "build"
+    },
+    {
+      "label": "build fixer",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "build",
+        "--manifest-path",
+        "fixer/Cargo.toml"
+      ],
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "build"
+    },
+    {
+      "label": "build runner",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "build",
+        "--manifest-path",
+        "runner/Cargo.toml"
+      ],
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "build"
+    },
+    {
+      "label": "build all",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "build",
+        "--manifest-path",
+        "runner/Cargo.toml",
+      ],
+      "promptOnClose": false,
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "build",
+      "dependsOn": [
+        "build cleaner",
+        "build compare",
+        "build fixer",
+      ]
+    },
+    {
+      "label": "test cleaner",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "test",
+        "--manifest-path",
+        "cleaner/Cargo.toml",
+      ],
+      "promptOnClose": false,
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "test",
+    },
+    {
+      "label": "test compare",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "test",
+        "--manifest-path",
+        "compare/Cargo.toml",
+      ],
+      "promptOnClose": false,
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "test",
+    },
+    {
+      "label": "test fixer",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "test",
+        "--manifest-path",
+        "fixer/Cargo.toml",
+      ],
+      "promptOnClose": false,
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "test",
+    },
+    {
+      "label": "test runner",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "test",
+        "--manifest-path",
+        "runner/Cargo.toml",
+      ],
+      "promptOnClose": false,
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "test",
+    },
+    {
+      "label": "test all",
+      "command": "cargo",
+      "type": "shell",
+      "args": [
+        "test",
+        "--manifest-path",
+        "runner/Cargo.toml",
+      ],
+      "promptOnClose": false,
+      "problemMatcher" : "$rustc",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "group": "test",
+      "dependsOn": [
+        "test cleaner",
+        "test compare",
+        "test fixer",
+      ]
+    },
+  ]
+}
