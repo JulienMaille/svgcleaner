@@ -8,3 +8,4 @@ pub mod font_data;
 pub mod width_and_height;
 pub mod add_view_box;
 pub mod pointless_transform;
+pub mod nan_transform;
