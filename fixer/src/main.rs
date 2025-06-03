@@ -1,7 +1,7 @@
 use clap::Parser;
 use core::panic;
 use std::{fs};
-use svgcleaner::fixlib::fix_svg;
+use svgfixer::fixlib::fix_svg;
 
 // https://docs.rs/clap/latest/clap/
 

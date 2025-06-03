@@ -1,9 +1,15 @@
 use clap::Parser;
+use svgcleaner::{CleaningOptions, ParseOptions, WriteOptions};
+use svgcompare::comparison::compare_svgs;
 use core::panic;
 
-use std::io;
+use std::{io};
 use std::fs::{self, DirEntry};
 use std::path::Path;
+
+use svgfixer::{fixlib::fix_svg};
+use svgcleaner::{cleaner::parse_data, cleaner::clean_doc, cleaner::write_buffer};
+use svgcompare::{comparison::ComparisonOptions};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about=None)]
@@ -14,9 +20,6 @@ pub struct Args {
 
     #[arg()]
     recursive: bool
-
-    // TODO: Add more args related to compare
-
 }
 
 fn main() {
@@ -31,12 +34,59 @@ fn main() {
     let func: &dyn Fn(&DirEntry) = &|entry| {
         if !std::path::Path::extension(&entry.path()).is_some_and(|ex| ex.eq(".svg")) { return; }
         
-        // let svg_data = fs::read_to_string(entry.path());
+        let svg_data = match fs::read_to_string(entry.path()) {
+            Ok(a) => a,
+            Err(_) => {
+                panic!("Could not read SVG data");
+            }
+        };
+
         // Fix the Svg (to a new path)
+        let fixed_svg_data = fix_svg(svg_data.clone());
+
         // Clean the svg (at the new path)
+        let parse_options = ParseOptions::default();
+        let mut svg_doc = match parse_data(&fixed_svg_data, &parse_options) {
+            Ok(a) => a,
+            Err(e) => panic!("{}", e),
+        };
+
+        let cleaning_options = CleaningOptions::default();
+        let write_options = WriteOptions::default();
+        let _ = match clean_doc(&mut svg_doc, &cleaning_options, &write_options) {
+            Ok(a) => a,
+            Err(e) => panic!("{}", e),
+        };
+
+        let mut buf = Vec::new();
+        write_buffer(&svg_doc, &write_options, &mut buf);
+
+        let cleaned_svg_data = str::from_utf8(&buf).unwrap().to_string();
+
+        let comparison_options = ComparisonOptions
+        {
+            path:String::from("~/example_path.svg"),
+            left_svg_data:cleaned_svg_data.clone(),
+            right_svg_data:svg_data,
+            pixel_tolerance:2u8,
+            image_fuziness:8u8,
+            image_size:64,
+            save_error_image:false
+        };
+
         // Compare the two svgs (at the old and new path)
-        // result is equal -> override the old path with the new path
-        // result is not equal -> delete the new path
+        let _ = match compare_svgs(comparison_options) {
+            Ok(_) => {
+                let _ = fs::write(entry.path(), cleaned_svg_data);
+                
+                let message = format!("File was cleaned successfully : {:?}", entry.file_name());
+                println!("{}", message);
+            },
+            Err(_) => {
+                let message = format!("File wasn't cleaned successfully : {:?}", entry.file_name());
+                println!("{}", message);
+            },
+        };
 
     };
 
