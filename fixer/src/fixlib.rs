@@ -20,7 +20,7 @@ pub fn fix_svg(svg_data:String) -> String {
     stack.push(Box::new(ExternalStyle));
     stack.push(Box::new(FontData));
 
-    let mut data = svg_data;
+    let mut data = svg_data.clone();
 
     while let Some(top) = stack.pop() {
         data = top.fix(&data);
