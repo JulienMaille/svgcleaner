@@ -2,8 +2,7 @@ use regex::Regex;
 
 use super::task::Task;
 
-pub struct ExternalStyle {
-}
+pub struct ExternalStyle;
 
 impl Task for ExternalStyle {
   fn fix(&self, svg: &String) -> String {

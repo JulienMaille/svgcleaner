@@ -2,8 +2,7 @@ use regex::Regex;
 
 use super::task::Task;
 
-pub struct ViewBoxPt {
-}
+pub struct ViewBoxPt;
 
 impl Task for ViewBoxPt {
   fn fix(&self, svg: &String) -> String {

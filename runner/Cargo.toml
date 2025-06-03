@@ -16,7 +16,10 @@ name = "svgrunner"
 path = "src/main.rs"
 
 [dependencies]
-clap = "4.5.39"
+clap = { version = "4.5.39", features = ["derive"] }
+svgfixer = { version = "0.1.0", path = "../fixer" }
+svgcompare = { version = "0.1.0", path = "../compare" }
+svgcleaner = { version = "0.9.6", path = "../cleaner" }
 
 [dev-dependencies]
 pretty_assertions = "1.4.1"

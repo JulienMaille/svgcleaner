@@ -10,6 +10,11 @@ repository = "https://github.com/mcneel/svgcleaner"
 readme = "../README.md"
 edition = "2024"
 
+[lib]
+name = "svgcleaner"
+path = "src/lib.rs"
+doctest = false
+
 [[bin]]
 doc = false
 name = "svgcompare"

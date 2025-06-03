@@ -2,8 +2,7 @@ use regex::Regex;
 
 use super::task::Task;
 
-pub struct FontData {
-}
+pub struct FontData;
 
 // Delete <style type="text/css">@import url('https://themes.googleusercontent.com/fonts/css?family=Open Sans:400,600');</style>
 impl Task for FontData {

@@ -3,7 +3,7 @@ use std::{fs};
 
 pub mod comparison;
 
-use comparison::compare_svgs;
+use comparison::{compare_svgs, ComparisonOptions};
 
 // https://docs.rs/clap/latest/clap/
 
@@ -16,6 +16,8 @@ pub struct Args {
 
   #[arg()]
   right_svg: String,
+
+  // TODO : Add More inputs
 }
 
 fn main() {
@@ -53,5 +55,20 @@ fn main() {
         }
     };
 
-    compare_svgs(&args.left_svg.clone(), &left_svg_data, &right_svg_data);
+    let options = ComparisonOptions
+    {
+      path:args.left_svg.clone(),
+      left_svg_data:left_svg_data,
+      right_svg_data:right_svg_data,
+      pixel_tolerance:2u8,
+      image_fuziness:8u8,
+      image_size:48,
+      save_error_image:true
+    };
+
+    let _ = match compare_svgs(options) {
+        Err(e) => panic!("{}", e),
+        Ok(a) => std::process::exit(a as i32)
+    };
+
 }

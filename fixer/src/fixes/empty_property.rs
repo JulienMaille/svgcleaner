@@ -2,8 +2,7 @@ use regex::Regex;
 
 use super::task::Task;
 
-pub struct EmptyProperty {
-}
+pub struct EmptyProperty;
 
 impl Task for EmptyProperty {
   fn fix(&self, svg: &String) -> String {
@@ -15,9 +14,7 @@ impl Task for EmptyProperty {
 
 #[cfg(test)]
 mod tests {
-
-  use crate::EmptyProperty;
-  use crate::Task;
+  use super::{EmptyProperty, Task};
   use pretty_assertions::{assert_eq};
 
   #[test]

@@ -2,8 +2,7 @@ use regex::Regex;
 
 use super::task::Task;
 
-pub struct PointlessXmlns {
-}
+pub struct PointlessXmlns;
 
 impl Task for PointlessXmlns {
   fn fix(&self, svg: &String) -> String {
@@ -26,9 +25,7 @@ impl Task for PointlessXmlns {
 
 #[cfg(test)]
 mod tests {
-
-  use crate::PointlessXmlns;
-  use crate::Task;
+  use super::{PointlessXmlns, Task};
   use pretty_assertions::{assert_eq};
 
   #[test]

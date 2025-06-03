@@ -1,7 +1,6 @@
 use super::task::Task;
 
-pub struct WidthAndHeight {
-}
+pub struct WidthAndHeight;
 
 /*
 // TODO : Replace Width/Height with 100%?

@@ -2,8 +2,7 @@ use regex::Regex;
 
 use super::task::Task;
 
-pub struct PointlessTransform {
-}
+pub struct PointlessTransform;
 
 // TODO : Seems to cause a break!
 impl Task for PointlessTransform {
