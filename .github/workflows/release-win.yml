@@ -1,0 +1,57 @@
+name: Release Windows x64
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build-and-release-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          target: x86_64-pc-windows-msvc
+
+      - name: Build Fixer
+        run: cargo build --manifest-path fixer/Cargo.toml --release --verbose
+
+      - name: Build Cleaner
+        run: cargo build --manifest-path cleaner/Cargo.toml --release --verbose
+
+      - name: Create archive
+        run: |
+          mkdir dist
+          Copy-Item -Path fixer/target/release/svgfixer.exe -Destination dist/
+          Copy-Item -Path cleaner/target/release/svgcleaner.exe -Destination dist/
+          Compress-Archive -Path dist/* -DestinationPath dist/svgcleaner_windows_x64_${{ github.ref_name }}.zip
+
+      - name: Create git tag
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git tag auto-release-${{ github.run_number }}
+          git push origin auto-release-${{ github.run_number }}
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/svgcleaner_windows_x64_${{ github.ref_name }}.zip
+          generate_release_notes: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
