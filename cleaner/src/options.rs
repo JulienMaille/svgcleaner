@@ -94,7 +94,7 @@ impl Default for CleaningOptions {
             resolve_use: false,
 
             remove_version: false,
-            remove_nonsvg_attributes: false,
+            remove_nonsvg_attributes: true,
             remove_unreferenced_ids: false,
             trim_ids: false,
             remove_text_attributes: false,
