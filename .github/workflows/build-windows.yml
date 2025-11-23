@@ -1,20 +1,17 @@
-name: Release Windows x64
+name: Build Windows
 
 on:
   push:
-    tags:
-      - 'v*'
-  workflow_dispatch:
+    branches: [ "dev", "main", "ci/windows-gha-build" ]
+  pull_request:
+    branches: [ "dev", "main" ]
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build-and-release-windows:
+  build-windows:
     runs-on: windows-latest
-    permissions:
-      contents: write
-      packages: write
 
     steps:
       - name: Checkout
@@ -56,28 +53,19 @@ jobs:
       - name: Build Runner
         run: cargo build --manifest-path runner/Cargo.toml --release --verbose
 
-      - name: Create archive
+      - name: Create output directory
+        run: mkdir dist
+
+      - name: Copy binaries to dist
         run: |
-          mkdir dist
           Copy-Item -Path fixer/target/release/svgfixer.exe -Destination dist/
           Copy-Item -Path cleaner/target/release/svgcleaner.exe -Destination dist/
           Copy-Item -Path compare/target/release/svgcompare.exe -Destination dist/
           Copy-Item -Path runner/target/release/svgrunner.exe -Destination dist/
-          Compress-Archive -Path dist/* -DestinationPath svgcleaner_windows_x64_${{ github.ref_name }}.zip
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: windows-release-${{ github.ref_name }}
-          path: svgcleaner_windows_x64_${{ github.ref_name }}.zip
-          retention-days: 90
-
-      - name: Create release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            svgcleaner_windows_x64_${{ github.ref_name }}.zip
-          generate_release_notes: true
-          make_latest: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: windows-binaries
+          path: dist/
+          retention-days: 30
