@@ -442,7 +442,6 @@ pub fn gen_parse_options(args: &ArgMatches) -> ParseOptions {
     flags.resolve_inv(&mut opt.parse_comments, Key::RemoveComments);
     flags.resolve_inv(&mut opt.parse_declarations, Key::RemoveDeclarations);
     flags.resolve_inv(&mut opt.parse_unknown_elements, Key::RemoveNonsvgElements);
-    flags.resolve_inv(&mut opt.parse_unknown_attributes, Key::RemoveNonsvgAttributes);
     flags.resolve(&mut opt.skip_unresolved_classes, Key::RemoveUnresolvedClasses);
 
     opt
@@ -528,6 +527,7 @@ pub fn gen_cleaning_options(args: &ArgMatches) -> CleaningOptions {
     flags.resolve(&mut opt.resolve_use, Key::ResolveUse);
 
     flags.resolve(&mut opt.remove_version, Key::RemoveVersion);
+    flags.resolve(&mut opt.remove_nonsvg_attributes, Key::RemoveNonsvgAttributes);
     flags.resolve(&mut opt.remove_unreferenced_ids, Key::RemoveUnreferencedIds);
     flags.resolve(&mut opt.trim_ids, Key::TrimIds);
     flags.resolve(&mut opt.remove_text_attributes, Key::RemoveTextAttributes);

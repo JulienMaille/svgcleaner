@@ -25,6 +25,10 @@ Features
 
 # Svg Cleaner
 
+## [Unreleased]
+### Fixed
+- `vector-effect` attributes are no longer stripped when using `--remove-nonsvg-attributes`.
+
 ## [0.9.6] - 2020-11-08
 ### Added
 - `--append-newline` option by [@aaronfranke](https://github.com/aaronfranke).
