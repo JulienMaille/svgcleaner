@@ -72,6 +72,7 @@ fn main() {
             resolve_use: false, // <-- Keeping use seems good to me
 
             remove_version: true,
+            remove_nonsvg_attributes: true,
             remove_unreferenced_ids: true,
             trim_ids: true,
             remove_text_attributes: true,
