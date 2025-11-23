@@ -65,10 +65,6 @@ pub fn clean_doc(
     options: &CleaningOptions,
     opt: &WriteOptions
 ) -> Result<(), error::Error> {
-    if options.remove_nonsvg_attributes {
-        remove_nonsvg_attributes(doc);
-    }
-
     preclean_checks(doc)?;
 
     // NOTE: Order is important.
@@ -185,6 +181,10 @@ pub fn clean_doc(
     }
 
     // Now we can remove any unneeded attributes.
+
+    if options.remove_nonsvg_attributes {
+        remove_nonsvg_attributes(doc);
+    }
 
     if options.remove_default_attributes {
         remove_default_attributes(doc);
