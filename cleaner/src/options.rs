@@ -97,9 +97,8 @@ impl Default for CleaningOptions {
             remove_nonsvg_attributes: false,
             remove_unreferenced_ids: false,
             trim_ids: false,
-
+            remove_text_attributes: false,
             remove_unused_coordinates: false,
-            remove_default_attributes: false,
             remove_xmlns_xlink_attribute: false,
             remove_needless_attributes: false,
             remove_gradient_attributes: false,
