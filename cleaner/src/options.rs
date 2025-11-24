@@ -43,6 +43,7 @@ pub struct CleaningOptions {
     pub resolve_use: bool,
 
     pub remove_version: bool,
+    pub remove_nonsvg_attributes: bool,
     pub remove_unreferenced_ids: bool,
     pub trim_ids: bool,
     pub remove_text_attributes: bool,
@@ -93,6 +94,7 @@ impl Default for CleaningOptions {
             resolve_use: false,
 
             remove_version: false,
+            remove_nonsvg_attributes: true,
             remove_unreferenced_ids: false,
             trim_ids: false,
             remove_text_attributes: false,
